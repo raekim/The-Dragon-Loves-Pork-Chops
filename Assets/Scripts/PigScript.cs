@@ -11,7 +11,7 @@ public class PigScript : MonoBehaviour
     public float chargeProb;
     [Tooltip("(float) The propability of calling Walk()")]
     public float walkProb;
-    [Tooltip("(int) The speed at which the pig walks")]
+    [Tooltip("(float) The speed at which the pig walks")]
     public float walkingSpeed;
     private float chargingSpeed;
     private int pigSize;    // The size of the pig [1-3]
