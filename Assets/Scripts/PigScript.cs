@@ -15,6 +15,7 @@ public class PigScript : MonoBehaviour
     public float walkingSpeed;
     private float chargingSpeed;
     private int pigSize;    // The size of the pig [1-3]
+    private int health = 100;
 
     Rigidbody2D rgb2d;
     public enum BehaviorState {Standing = 1, Walking, Charging};
@@ -77,13 +78,13 @@ public class PigScript : MonoBehaviour
         elapsedTime = 0;
         // Determine pig size
         pigSize = Random.Range(1, maxPigSize + 1);   // Random size [1-3]
+        health *= pigSize;
         // Change the pig sprite's size
     }
 
     private float GetNextChangeStateTime()
     {
         float nextChangeStateTime = Random.Range(minChangeStateTime, maxChangeStateTime);
-        Debug.Log(nextChangeStateTime);
         return nextChangeStateTime;
     }
 
@@ -119,16 +120,13 @@ public class PigScript : MonoBehaviour
         switch (curState)
         {
             case BehaviorState.Standing:
-                Debug.Log("stand()");
                 break;
             case BehaviorState.Walking:
-                Debug.Log("walk()");
                 // Walk animation
                 // Pick random direction towards wich the pig will walk
                 walkDirection = Random.insideUnitCircle;
                 break;
             case BehaviorState.Charging:
-                Debug.Log("charge()");
                 break;
             default:
                 break;
@@ -154,5 +152,16 @@ public class PigScript : MonoBehaviour
         transform.position += (Vector3)walkDirection * walkingSpeed * Time.fixedDeltaTime;
     }
 
-
+    // Take damage
+    public void Hit(int damage)
+    {
+        health -= damage;
+        Debug.Log("\"Oink!\"");
+        if (health <= 0)
+        {
+            // Pig dies
+            Debug.Log("Pig Dies");
+            Destroy(gameObject);
+        }
+    }
 }

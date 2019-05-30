@@ -62,6 +62,9 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PigScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
+    <Compile Include="Assets\Scripts\SwordScript.cs" />
+    <Compile Include="Assets\Scripts\WeaponScript.cs" />
+    <Compile Include="Assets\SwordStateMachineScript.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Rae/Desktop/weeklyGameJam98/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
