@@ -199,7 +199,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -220,6 +225,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pig (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
@@ -284,7 +294,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -421,6 +436,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pig (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -484,7 +504,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -505,6 +530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pig (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
@@ -569,7 +599,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -747,6 +782,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pig (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -810,7 +850,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -831,6 +876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pig (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
@@ -895,7 +945,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -910,6 +965,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pig (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
@@ -974,7 +1034,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -989,6 +1054,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pig (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
@@ -1053,7 +1123,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
@@ -1131,8 +1206,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackOn: 0
   swordDamage: 20
-  swingSpeed: 10
-  attackCoolTime: 1
 --- !u!212 &1868896590
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1212,6 +1285,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pig (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4170562705573782423, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4170562705573782504, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1275,7 +1353,12 @@ PrefabInstance:
     - target: {fileID: 4170562705573782506, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
         type: 3}
       propertyPath: walkingSpeed
-      value: 2
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2444306497590016938, guid: 4a48cbb6b24d1434ba2a8d42ee429175,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a48cbb6b24d1434ba2a8d42ee429175, type: 3}
