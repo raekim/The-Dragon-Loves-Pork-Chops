@@ -24,6 +24,7 @@ public class PigScript : MonoBehaviour
     private BehaviorState curState;
     private Vector2 walkDirection;
     public GameObject playerObject;
+    public GameObject healthBarObject;
 
     // Static variables
     private static readonly int maxPigSize = 3;
@@ -35,7 +36,10 @@ public class PigScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Get neede components
         rgb2d = GetComponent<Rigidbody2D>();
+
+        // Start the pig
         chargingSpeed = walkingSpeed * 2f;
         InitPigStats();
         ChangeToNextState();
@@ -79,7 +83,7 @@ public class PigScript : MonoBehaviour
         // Determine pig size
         pigSize = Random.Range(1, maxPigSize + 1);   // Random size [1-3]
         health *= pigSize;
-        // Change the pig sprite's size
+        healthBarObject.transform.localScale = new Vector3(0.5f * pigSize, 0.1f, 1);
     }
 
     private float GetNextChangeStateTime()
