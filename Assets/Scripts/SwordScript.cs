@@ -6,6 +6,8 @@ public class SwordScript : WeaponScript
 {
     [Tooltip("(int) The damage of the sword")]
     public int swordDamage = 20;
+    [Tooltip("(float) Attack cooltime")]
+    public float attackCooltime = 1f;
     private Animator Animator;
 
     // Start is called before the first frame update

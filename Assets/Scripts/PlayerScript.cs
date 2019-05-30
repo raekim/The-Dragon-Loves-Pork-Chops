@@ -11,6 +11,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject weapon;
     private WeaponScript weaponScript;
 
+    private float curTime = 0;
     private bool facingRight = true;
 
     // Start is called before the first frame update
@@ -26,10 +27,14 @@ public class PlayerScript : MonoBehaviour
         FaceMousePoint();
 
         // Use GetButtonDown later
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && curTime >= weaponScript.attackRate)
         {
+            Debug.Log("attack");
+            curTime = 0;
             weaponScript.Attack();
         }
+
+        curTime += Time.fixedDeltaTime;
     }
 
     private void FixedUpdate()

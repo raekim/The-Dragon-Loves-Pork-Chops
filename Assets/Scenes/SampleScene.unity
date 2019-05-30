@@ -1206,6 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackOn: 0
   swordDamage: 20
+  attackCooltime: 0
 --- !u!212 &1868896590
 SpriteRenderer:
   m_ObjectHideFlags: 0
