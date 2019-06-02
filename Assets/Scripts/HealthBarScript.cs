@@ -9,13 +9,23 @@ public class HealthBarScript : MonoBehaviour
     public GameObject character;
     [Tooltip("The offset of the position of this health bar")]
     public Vector3 healthbarOffset;
+
     private Image healthBarImage;
-    public int characterMaxHealth;
+    private int characterMaxHealth;
+    private CharacterScript CharacterScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthBarImage = GetComponentsInChildren<Image>()[1];   // get healthbar filling image component
+        CharacterScript = character.GetComponent<CharacterScript>();
+        SetMaxHealth(CharacterScript.health);
+        healthBarImage = GetComponentsInChildren<Image>()[1];
+        UpdateHealthBarFilling();
+    }
+
+    public void SetMaxHealth(int health)
+    {
+        characterMaxHealth = health;  
     }
 
     // Update is called once per frame
@@ -33,8 +43,6 @@ public class HealthBarScript : MonoBehaviour
     // Update healthbar filling amount according to character's HP
     public void UpdateHealthBarFilling()
     {
-        
-        healthBarImage.fillAmount = (float)character.GetComponent<PigScript>().health / characterMaxHealth;
-        Debug.Log(healthBarImage.fillAmount);
+        healthBarImage.fillAmount = (float)CharacterScript.health / characterMaxHealth;
     }
 }

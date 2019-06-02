@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // transform.position += (Vector3)walkDirection * walkingSpeed * Time.fixedDeltaTime;
-public class PlayerScript : MonoBehaviour
+public class PlayerScript : CharacterScript
 {
     // Player Stats
     [Tooltip("(float) The speed at which the player walks")]
@@ -29,7 +29,6 @@ public class PlayerScript : MonoBehaviour
         // Use GetButtonDown later
         if (Input.GetButton("Fire1") && curTime >= weaponScript.attackRate)
         {
-            Debug.Log("attack");
             curTime = 0;
             weaponScript.Attack();
         }

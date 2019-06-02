@@ -22,12 +22,13 @@ public class SwordScript : WeaponScript
         Animator.SetTrigger("AttackTrigger");
         // attackOn variable become true and false as the sword goes through swinging animation
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (attackOn && collision.gameObject.tag == "Pig")
         {
             // Deal damage to the pig
-            collision.gameObject.GetComponent<PigScript>().Hit(swordDamage);
+            collision.gameObject.GetComponent<CharacterScript>().Hit(swordDamage);
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PigScript : MonoBehaviour
+public class PigScript : CharacterScript
 {
     // Pig Stats
     [Tooltip("(float) The propability of calling Stand()")]
@@ -15,8 +15,7 @@ public class PigScript : MonoBehaviour
     public float walkingSpeed;
     private float chargingSpeed;
     private int pigSize;    // The size of the pig [1-3]
-    public int health = 100;
-    private HealthBarScript healthBar;
+    
 
     Rigidbody2D rgb2d;
     public enum BehaviorState {Standing = 1, Walking, Charging};
@@ -25,7 +24,6 @@ public class PigScript : MonoBehaviour
     private BehaviorState curState;
     private Vector2 walkDirection;
     public GameObject playerObject;
-    public GameObject healthBarObject;
 
     // Static variables
     private static readonly int maxPigSize = 3;
@@ -39,7 +37,6 @@ public class PigScript : MonoBehaviour
     {
         // Get neede components
         rgb2d = GetComponent<Rigidbody2D>();
-        healthBar = GetComponentInChildren<HealthBarScript>();
 
         // Start the pig
         chargingSpeed = walkingSpeed * 2f;
@@ -85,9 +82,8 @@ public class PigScript : MonoBehaviour
         // Determine pig size
         pigSize = Random.Range(1, maxPigSize + 1);   // Random size [1-3]
         health = 100*pigSize;
-        healthBar.characterMaxHealth = health;
-        healthBar.UpdateHealthBarFilling();
-        healthBarObject.transform.localScale = new Vector3(0.5f * pigSize, 0.1f, 1);
+        healthBar.SetMaxHealth(health);
+        healthBar.transform.localScale = new Vector3(0.5f * pigSize, 0.1f, 1);
     }
 
     private float GetNextChangeStateTime()
@@ -160,15 +156,12 @@ public class PigScript : MonoBehaviour
         transform.position += (Vector3)walkDirection * walkingSpeed * Time.fixedDeltaTime;
     }
 
-    // Take damage
-    public void Hit(int damage)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        health -= damage;
-        healthBar.UpdateHealthBarFilling();
-        if (health <= 0)
+        if (curState == BehaviorState.Charging && collision.gameObject.tag == "Player")
         {
-            // Pig dies
-            Destroy(gameObject);
+            Debug.Log("Pig attacking");
+            collision.gameObject.GetComponent<CharacterScript>().Hit(damage);
         }
     }
 }
