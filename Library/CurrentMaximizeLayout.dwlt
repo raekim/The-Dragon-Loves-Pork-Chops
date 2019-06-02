@@ -23,10 +23,10 @@ MonoBehaviour:
     y: 30
     width: 1438
     height: 771
-  m_MinSize: {x: 917, y: 448}
-  m_MaxSize: {x: 22012, y: 10024}
+  m_MinSize: {x: 911, y: 424}
+  m_MaxSize: {x: 22006, y: 10000}
   vertical: 0
-  controlID: 29400
+  controlID: 646
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -128,10 +128,10 @@ MonoBehaviour:
     y: 0
     width: 478
     height: 771
-  m_MinSize: {x: 202, y: 448}
-  m_MaxSize: {x: 4002, y: 8048}
+  m_MinSize: {x: 202, y: 424}
+  m_MaxSize: {x: 4002, y: 8024}
   vertical: 1
-  controlID: 29401
+  controlID: 626
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -185,14 +185,14 @@ MonoBehaviour:
     height: 376
   m_PersistentViewDataDictionary: {fileID: 0}
   m_WindowGUID: cad1821aafbe00f4880a8673a78ec510
-  m_SceneLighting: 0
+  m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 324.665, y: 165.2125, z: 0}
+    m_Target: {x: -1.8279735, y: -0.39771748, z: -0.031295132}
     speed: 2
-    m_Value: {x: 324.665, y: 165.2125, z: 0}
+    m_Value: {x: -1.8279735, y: -0.39771748, z: -0.031295132}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -224,9 +224,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1204.9672
+    m_Target: 5.110921
     speed: 2
-    m_Value: 1204.9672
+    m_Value: 5.110921
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -257,8 +257,8 @@ MonoBehaviour:
     y: 396
     width: 478
     height: 375
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -321,7 +321,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 
+      m_ExpandedIDs: 90fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -409,20 +409,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Sprites
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Sprites
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\rolyp\Desktop\weeklyGameJam98
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 942d0000
-    m_LastClickedID: 11668
-    m_ExpandedIDs: 00000000702d00003a2e000000ca9a3b
+    m_SelectedIDs: 82260000
+    m_LastClickedID: 9858
+    m_ExpandedIDs: 000000005c2600004627000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -450,7 +450,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000702d00003a2e000000ca9a3b
+    m_ExpandedIDs: 000000005c2600004627000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -475,10 +475,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 7ea80000
-    m_LastClickedInstanceID: 43134
+    m_SelectedInstanceIDs: c0270000
+    m_LastClickedInstanceID: 10176
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: aa300000
+    m_ExpandedInstanceIDs: aa300000c0270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
