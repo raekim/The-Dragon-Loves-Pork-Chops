@@ -17,6 +17,7 @@ public class PlayerScript : CharacterScript
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         SetCharacterDirection();
         weaponScript = weapon.GetComponent<WeaponScript>();
     }

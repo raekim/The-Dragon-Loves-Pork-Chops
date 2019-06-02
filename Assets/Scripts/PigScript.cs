@@ -24,6 +24,7 @@ public class PigScript : CharacterScript
     private BehaviorState curState;
     private Vector2 walkDirection;
     public GameObject playerObject;
+    Vector3 lastPos;
 
     // Static variables
     private static readonly int maxPigSize = 3;
@@ -32,11 +33,14 @@ public class PigScript : CharacterScript
     public static float sizeMultiple = 3;  // Multiplier of the pig size
 
 
+
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
-        // Get neede components
+        base.Start();
+
         rgb2d = GetComponent<Rigidbody2D>();
+        lastPos = transform.position;
 
         // Start the pig
         chargingSpeed = walkingSpeed * 2f;
@@ -53,6 +57,11 @@ public class PigScript : CharacterScript
             elapsedTime = 0;
             ChangeToNextState();
         }
+
+        // Face the pig's moving direction
+        var velocity = transform.position - lastPos;
+        FaceMovingDirection(velocity);
+        lastPos = transform.position;
 
         elapsedTime += Time.deltaTime;
     }
@@ -140,12 +149,13 @@ public class PigScript : CharacterScript
     // Standing idly at current position
     private void Stand()
     {
-        
+        animator.SetTrigger("StandTrigger");
     }
 
     // Charge attack at the target game object
     private void Charge(Vector2 targetPos)
     {
+        animator.SetTrigger("ChargeTrigger");
         float step = chargingSpeed * Time.fixedDeltaTime;
         rgb2d.MovePosition(Vector2.MoveTowards(transform.position, targetPos, step));
     }
@@ -153,6 +163,7 @@ public class PigScript : CharacterScript
     // Walks in a straight line towards a random direction
     private void Walk()
     {
+        animator.SetTrigger("WalkTrigger");
         transform.position += (Vector3)walkDirection * walkingSpeed * Time.fixedDeltaTime;
     }
 
@@ -160,8 +171,20 @@ public class PigScript : CharacterScript
     {
         if (curState == BehaviorState.Charging && collision.gameObject.tag == "Player")
         {
-            Debug.Log("Pig attacking");
             collision.gameObject.GetComponent<CharacterScript>().Hit(damage);
+        }
+    }
+
+
+    private void FaceMovingDirection(Vector3 movingVector)
+    {
+        if (movingVector.x > 0.05)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (movingVector.x < -0.05)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }
