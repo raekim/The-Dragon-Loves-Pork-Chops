@@ -56,11 +56,11 @@ public class PlayerScript : CharacterScript
 
         if (delta.x >= 0 && !facingRight)   // face right
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-size, size, 0);
             facingRight = true;
         }
         else if (delta.x < 0 && facingRight) {  // face left
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(size, size, 0);
             facingRight = false;
         }
     }
@@ -71,6 +71,7 @@ public class PlayerScript : CharacterScript
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        animator.SetBool("isWalking", movement.magnitude != 0);
         movement.Normalize();
         transform.position += (Vector3)movement * walkingSpeed * Time.fixedDeltaTime;
     }

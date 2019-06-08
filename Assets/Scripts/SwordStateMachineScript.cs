@@ -6,11 +6,13 @@ public class SwordStateMachineScript : StateMachineBehaviour
 {
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
+        animator.gameObject.GetComponent<Collider2D>().enabled = true;
         animator.gameObject.GetComponent<WeaponScript>().attackOn = true;
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
+        animator.gameObject.GetComponent<Collider2D>().enabled = false;
         animator.gameObject.GetComponent<WeaponScript>().attackOn = false;
     }
 

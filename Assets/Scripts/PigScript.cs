@@ -24,7 +24,6 @@ public class PigScript : CharacterScript
     private BehaviorState curState;
     private Vector2 walkDirection;
     public GameObject playerObject;
-    Vector3 lastPos;
 
     // Static variables
     private static readonly int maxPigSize = 3;
@@ -39,8 +38,8 @@ public class PigScript : CharacterScript
     {
         base.Start();
 
+        // Get needed components
         rgb2d = GetComponent<Rigidbody2D>();
-        lastPos = transform.position;
 
         // Start the pig
         chargingSpeed = walkingSpeed * 2f;
@@ -58,11 +57,6 @@ public class PigScript : CharacterScript
             ChangeToNextState();
         }
 
-        // Face the pig's moving direction
-        var velocity = transform.position - lastPos;
-        FaceMovingDirection(velocity);
-        lastPos = transform.position;
-
         elapsedTime += Time.deltaTime;
     }
 
@@ -77,6 +71,10 @@ public class PigScript : CharacterScript
                 Walk();
                 break;
             case BehaviorState.Charging:
+                // Face the direction of player
+                var velocity = transform.position - playerObject.transform.position;
+                FaceMovingDirection(velocity);
+                // Charge at the player
                 Charge((Vector2)playerObject.transform.position);
                 break;
             default:
@@ -125,6 +123,22 @@ public class PigScript : CharacterScript
 
     private void ChangeToNextState()
     {
+        // Reset current Animation Trigger
+        switch (curState)
+        {
+            case BehaviorState.Standing:
+                animator.ResetTrigger("StandTrigger");
+                break;
+            case BehaviorState.Walking:
+                animator.ResetTrigger("WalkTrigger");
+                break;
+            case BehaviorState.Charging:
+                animator.ResetTrigger("ChargeTrigger");
+                break;
+            default:
+                break;
+        }
+
         // Change curstate and changeStateTime
         curState = GetNextState();
         changeSateTime = GetNextChangeStateTime();
@@ -133,13 +147,19 @@ public class PigScript : CharacterScript
         switch (curState)
         {
             case BehaviorState.Standing:
+                animator.SetTrigger("StandTrigger");
                 break;
             case BehaviorState.Walking:
-                // Walk animation
+                animator.SetTrigger("WalkTrigger");
                 // Pick random direction towards wich the pig will walk
                 walkDirection = Random.insideUnitCircle;
+                // Face the direction of walking
+                var velocity = transform.position - (transform.position + (Vector3)walkDirection);
+                FaceMovingDirection(velocity);
                 break;
             case BehaviorState.Charging:
+                animator.SetTrigger("ChargeTrigger");
+                Debug.Log("CHarge");
                 break;
             default:
                 break;
@@ -149,13 +169,12 @@ public class PigScript : CharacterScript
     // Standing idly at current position
     private void Stand()
     {
-        animator.SetTrigger("StandTrigger");
+        
     }
 
     // Charge attack at the target game object
     private void Charge(Vector2 targetPos)
     {
-        animator.SetTrigger("ChargeTrigger");
         float step = chargingSpeed * Time.fixedDeltaTime;
         rgb2d.MovePosition(Vector2.MoveTowards(transform.position, targetPos, step));
     }
@@ -163,7 +182,6 @@ public class PigScript : CharacterScript
     // Walks in a straight line towards a random direction
     private void Walk()
     {
-        animator.SetTrigger("WalkTrigger");
         transform.position += (Vector3)walkDirection * walkingSpeed * Time.fixedDeltaTime;
     }
 
@@ -175,16 +193,16 @@ public class PigScript : CharacterScript
         }
     }
 
-
     private void FaceMovingDirection(Vector3 movingVector)
     {
-        if (movingVector.x > 0.05)
+        Debug.Log(movingVector);
+        if (movingVector.x > 0.01)  // facing right
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            spr.flipX = false;
         }
-        if (movingVector.x < -0.05)
+        if (movingVector.x < -0.01) // facing left
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            spr.flipX = true;
         }
     }
 }

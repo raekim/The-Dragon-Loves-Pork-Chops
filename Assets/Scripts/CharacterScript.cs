@@ -8,10 +8,13 @@ public class CharacterScript : MonoBehaviour
     public int damage;
     public HealthBarScript healthBar;
     protected Animator animator;
+    public SpriteRenderer spr;
+    public float size;
 
     public void Start()
     {
         animator = GetComponent<Animator>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     // Take damage
@@ -25,4 +28,5 @@ public class CharacterScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
