@@ -14,8 +14,11 @@ public class PlayerScript : CharacterScript
     private float curTime = 0;
     private bool facingRight = true;
 
+    public GameObject ThrowObject;   // object to throw
+    public float ThrowPower = 20f;
+
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
         base.Start();
         SetCharacterDirection();
@@ -27,11 +30,14 @@ public class PlayerScript : CharacterScript
     {
         FaceMousePoint();
 
-        // Use GetButtonDown later
-        if (Input.GetButton("Fire1") && curTime >= weaponScript.attackRate)
+        if (Input.GetMouseButton(0) && curTime >= weaponScript.attackRate)  // Left Mouse click attacks
         {
             curTime = 0;
             weaponScript.Attack();
+        }
+        if (Input.GetMouseButtonDown(1))    // Right Mouse click throws meat
+        {
+            ThrowMeat();
         }
 
         curTime += Time.fixedDeltaTime;
@@ -74,5 +80,28 @@ public class PlayerScript : CharacterScript
         animator.SetBool("isWalking", movement.magnitude != 0);
         movement.Normalize();
         transform.position += (Vector3)movement * walkingSpeed * Time.fixedDeltaTime;
+    }
+
+    public override void Die()
+    {
+        Destroy(this);
+    }
+
+    private void ThrowMeat()
+    {
+        // No meat to throw
+        if (!GameManagerScript.GameManager.IsMeatAvailable())
+            return;
+
+        // Throw meat in a straight line
+        var meat = Instantiate(ThrowObject, transform.position, Quaternion.identity);
+        Vector2 forceVector;
+        forceVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        forceVector.Normalize();
+        forceVector *= ThrowPower;
+        meat.GetComponent<Rigidbody2D>().AddForce(forceVector, ForceMode2D.Impulse);
+
+        // meatCount decreases by 1
+        GameManagerScript.GameManager.LoseMeat(1);
     }
 }

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9ac88e5ebdb81bb4399df23c347942d7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e98717d9c9649cb4d80c41f495e1df87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,11 +101,13 @@ MonoBehaviour:
   healthBar: {fileID: 7962241667258712574}
   spr: {fileID: 0}
   size: 0
-  standProb: 0.4
+  standProb: 0.2
   chargeProb: 0.1
-  walkProb: 0.5
+  walkProb: 0.7
   walkingSpeed: 1.5
   playerObject: {fileID: 0}
+  meatObject: {fileID: 4723673569745686094, guid: 319d81762ca727848a4931360aee4794,
+    type: 3}
   minChangeStateTime: 3
   maxChangeStateTime: 8
 --- !u!50 &3242430954344585382

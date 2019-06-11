@@ -24,6 +24,7 @@ public class PigScript : CharacterScript
     private BehaviorState curState;
     private Vector2 walkDirection;
     public GameObject playerObject;
+    public GameObject meatObject;
 
     // Static variables
     private static readonly int maxPigSize = 3;
@@ -159,7 +160,6 @@ public class PigScript : CharacterScript
                 break;
             case BehaviorState.Charging:
                 animator.SetTrigger("ChargeTrigger");
-                Debug.Log("CHarge");
                 break;
             default:
                 break;
@@ -195,7 +195,6 @@ public class PigScript : CharacterScript
 
     private void FaceMovingDirection(Vector3 movingVector)
     {
-        Debug.Log(movingVector);
         if (movingVector.x > 0.01)  // facing right
         {
             spr.flipX = false;
@@ -203,6 +202,22 @@ public class PigScript : CharacterScript
         if (movingVector.x < -0.01) // facing left
         {
             spr.flipX = true;
+        }
+    }
+
+    public override void Die()
+    {
+        // Drop meat items according to the pig's size
+        DropMeat();
+        Destroy(gameObject);
+    }
+
+    private void DropMeat()
+    {
+        // Drop meat pigsize amount
+        for(int i=1; i<=pigSize; ++i)
+        {
+            Instantiate(meatObject, transform.position + new Vector3(Random.Range(-0.1f*i, 0.1f*i), Random.Range(-0.1f * i, 0.1f * i), 0), Quaternion.identity);
         }
     }
 }

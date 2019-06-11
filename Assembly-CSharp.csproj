@@ -61,11 +61,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterScript.cs" />
+    <Compile Include="Assets\Scripts\GameManagerScript.cs" />
     <Compile Include="Assets\Scripts\HealthBarScript.cs" />
+    <Compile Include="Assets\Scripts\MeatScript.cs" />
     <Compile Include="Assets\Scripts\PigScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\SwordScript.cs" />
     <Compile Include="Assets\Scripts\SwordStateMachineScript.cs" />
+    <Compile Include="Assets\Scripts\ThrowingMeatScript.cs" />
     <Compile Include="Assets\Scripts\WeaponScript.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/rolyp/Desktop/weeklyGameJam98/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

@@ -19,8 +19,8 @@ public class SwordScript : WeaponScript
     public override void Attack()
     {
         // Attack with sowrd
-        Animator.SetTrigger("AttackTrigger");
         // attackOn variable become true and false as the sword goes through swinging animation
+        Animator.SetTrigger("AttackTrigger");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
