@@ -14,12 +14,16 @@ public class HealthBarScript : MonoBehaviour
     private int characterMaxHealth;
     private CharacterScript CharacterScript;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         CharacterScript = character.GetComponent<CharacterScript>();
-        SetMaxHealth(CharacterScript.health);
         healthBarImage = GetComponentsInChildren<Image>()[1];
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        SetMaxHealth(CharacterScript.health);
         UpdateHealthBarFilling();
     }
 

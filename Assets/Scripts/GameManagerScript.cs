@@ -14,9 +14,14 @@ public class GameManagerScript : MonoBehaviour
     public int meatCount;   // Amount of meat the player has
     public Text meatText;
 
+    public GameObject PlayerObj;
+    public PigSpawnerScript spawner;
+
     private void Awake()
     {
-        if(_GameManager != null && _GameManager != this)    // singleton instance already here
+        PlayerObj = GameObject.Find("Player");
+
+        if (_GameManager != null && _GameManager != this)    // singleton instance already here
         {
             Destroy(this.gameObject);
         }
@@ -30,6 +35,7 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         UpdateMeatText();
+        spawner = FindObjectOfType<PigSpawnerScript>();
     }
 
     // Update is called once per frame

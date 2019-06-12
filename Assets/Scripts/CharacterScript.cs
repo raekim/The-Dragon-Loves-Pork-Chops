@@ -11,7 +11,7 @@ public abstract class CharacterScript : MonoBehaviour
     public SpriteRenderer spr;
     public float size;
 
-    public void Start()
+    public void Awake()
     {
         animator = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();

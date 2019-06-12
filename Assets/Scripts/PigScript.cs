@@ -32,20 +32,21 @@ public class PigScript : CharacterScript
     public float maxChangeStateTime = 6f;
     public static float sizeMultiple = 3;  // Multiplier of the pig size
 
-
-
-    // Start is called before the first frame update
-    new void Start()
+    new private void Awake()
     {
-        base.Start();
-
+        base.Awake();
         // Get needed components
         rgb2d = GetComponent<Rigidbody2D>();
+        
+    }
 
-        // Start the pig
+    // Start is called before the first frame update
+    void Start()
+    {
         chargingSpeed = walkingSpeed * 2f;
-        InitPigStats();
-        ChangeToNextState();
+        playerObject = GameManagerScript.GameManager.PlayerObj;
+        // Start the pig
+        StartNewPig();
     }
 
     // Update is called once per frame
@@ -83,14 +84,24 @@ public class PigScript : CharacterScript
         }
     }
 
+    public void StartNewPig()
+    {
+        InitPigStats();
+        ChangeToNextState();
+    }
+
     // Initialize a new pig stats
     public void InitPigStats()
     {
         elapsedTime = 0;
+
         // Determine pig size
         pigSize = Random.Range(1, maxPigSize + 1);   // Random size [1-3]
+
+        // Set Health amount accordingly
         health = 100*pigSize;
         healthBar.SetMaxHealth(health);
+        healthBar.UpdateHealthBarFilling();
         healthBar.transform.localScale = new Vector3(0.5f * pigSize, 0.1f, 1);
     }
 
@@ -155,8 +166,8 @@ public class PigScript : CharacterScript
                 // Pick random direction towards wich the pig will walk
                 walkDirection = Random.insideUnitCircle;
                 // Face the direction of walking
-                var velocity = transform.position - (transform.position + (Vector3)walkDirection);
-                FaceMovingDirection(velocity);
+                //var velocity = transform.position - (transform.position + (Vector3)walkDirection);
+                FaceMovingDirection((Vector3)walkDirection);
                 break;
             case BehaviorState.Charging:
                 animator.SetTrigger("ChargeTrigger");
@@ -209,7 +220,7 @@ public class PigScript : CharacterScript
     {
         // Drop meat items according to the pig's size
         DropMeat();
-        Destroy(gameObject);
+        GameManagerScript.GameManager.spawner.EnqueuePig(this.gameObject);
     }
 
     private void DropMeat()

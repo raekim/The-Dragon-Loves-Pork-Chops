@@ -17,12 +17,16 @@ public class PlayerScript : CharacterScript
     public GameObject ThrowObject;   // object to throw
     public float ThrowPower = 20f;
 
-    // Start is called before the first frame update
-    new void Start()
+    new private void Awake()
     {
-        base.Start();
-        SetCharacterDirection();
+        base.Awake();
         weaponScript = weapon.GetComponent<WeaponScript>();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        SetCharacterDirection();
     }
 
     // Update is called once per frame
