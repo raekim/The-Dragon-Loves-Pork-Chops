@@ -66,11 +66,11 @@ public class PlayerScript : CharacterScript
 
         if (delta.x >= 0 && !facingRight)   // face right
         {
-            transform.localScale = new Vector3(-size, size, 0);
+            transform.localScale = new Vector3(-size, size, 1);
             facingRight = true;
         }
         else if (delta.x < 0 && facingRight) {  // face left
-            transform.localScale = new Vector3(size, size, 0);
+            transform.localScale = new Vector3(size, size, 1);
             facingRight = false;
         }
     }

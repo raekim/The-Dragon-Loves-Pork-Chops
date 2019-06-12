@@ -49,9 +49,6 @@ public class PigSpawnerScript : MonoBehaviour
                 yield return new WaitForSeconds(timeToWait);
 
                 // ...and then Spawn the Pig
-                pigToSpawn.SetActive(true);
-                pigToSpawn.GetComponent<PigScript>().StartNewPig();
-
                 // Locate the pig to the right position
                 int posX, posY;
                 do
@@ -61,6 +58,9 @@ public class PigSpawnerScript : MonoBehaviour
 
                 } while (Vector2.Distance(new Vector2(posX, posY), GameManagerScript.GameManager.PlayerObj.transform.position) < (float)SpawnPadding);
                 pigToSpawn.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(posX, posY, 1));
+                pigToSpawn.GetComponent<PigScript>().StartNewPig();
+
+                pigToSpawn.SetActive(true);
             }
         }
     }

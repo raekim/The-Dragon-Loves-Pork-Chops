@@ -25,6 +25,7 @@ public class HealthBarScript : MonoBehaviour
     {
         SetMaxHealth(CharacterScript.health);
         UpdateHealthBarFilling();
+        FollowCharacter();
     }
 
     public void SetMaxHealth(int health)
@@ -39,7 +40,7 @@ public class HealthBarScript : MonoBehaviour
     }
 
     // Position the health bar so that it follows the character
-    private void FollowCharacter()
+    public void FollowCharacter()
     {
         transform.position = Camera.main.WorldToScreenPoint(character.transform.position) + healthbarOffset;
     }
